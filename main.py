@@ -35,7 +35,7 @@ while game_running:
     ball.move()
 
     # Detect if ball collides with either paddle.
-    # Still a little buggy, but improved from the last commit.
+    # Still a little buggy, but improved from commit bc37b05.
     # There appears to be some edge cases which cause the ball
     # to behave unexpectedly.
     if (
