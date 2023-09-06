@@ -10,7 +10,7 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.penup()
-        self.setheading(230)
+        self.setheading(45)
 
     def move(self):
         self.forward(MOVE_SPEED)
