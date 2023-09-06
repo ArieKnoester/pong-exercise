@@ -30,17 +30,21 @@ while game_running:
     screen.update()
     time.sleep(0.2)
     ball.move()
-    print(f"Ball distance to left_paddle: {ball.distance(left_paddle)}")
 
     # Detect if ball collides with either paddle.
-    # Buggy. Only works if the ball collides with
-    # the paddle around the middle of its vertical
-    # edge. If the ball collides with the top or bottom
-    # of the vertical edge the paddle, it either passes
-    # through or gets stuck in the paddle before bouncing.
+    # Still a little buggy, but improved from the last commit.
+    # There appears to be some edge cases which cause the ball
+    # to behave unexpectedly.
     if (
-        ball.distance(right_paddle) < 25
-        or ball.distance(left_paddle) < 25
+        (
+            ball.xcor() > 330
+            and ball.distance(right_paddle) < 45
+        )
+        or
+        (
+            ball.xcor() < -330
+            and ball.distance(left_paddle) < 45
+        )
     ):
         current_heading = ball.heading()
         new_heading = 180 - ball.heading()
