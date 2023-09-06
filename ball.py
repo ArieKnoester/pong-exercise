@@ -20,6 +20,14 @@ class Ball(Turtle):
         # to have 2 hidden turtles as the top and bottom boundaries and use the turtle.distance() function
         # to detect collision.
         if self.ycor() > 280 or self.ycor() < -280:
-            current_heading = self.heading()
-            new_heading = 360 - current_heading
-            self.setheading(new_heading)
+            self.wall_bounce()
+
+    def wall_bounce(self):
+        current_heading = self.heading()
+        new_heading = 360 - current_heading
+        self.setheading(new_heading)
+
+    def paddle_bounce(self):
+        current_heading = self.heading()
+        new_heading = 180 - self.heading()
+        self.setheading(new_heading)

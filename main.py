@@ -19,7 +19,7 @@ screen = initialize_screen()
 left_paddle = Paddle((-350, 0))
 right_paddle = Paddle((350, 0))
 left_score = Scoreboard((-160, 240))
-right_score =  Scoreboard((160, 240))
+right_score = Scoreboard((160, 240))
 
 ball = Ball()
 
@@ -39,19 +39,11 @@ while game_running:
     # There appears to be some edge cases which cause the ball
     # to behave unexpectedly.
     if (
-        (
-            ball.xcor() > 330
-            and ball.distance(right_paddle) < 45
-        )
+        (ball.xcor() > 330 and ball.distance(right_paddle) < 45)
         or
-        (
-            ball.xcor() < -330
-            and ball.distance(left_paddle) < 45
-        )
+        (ball.xcor() < -330 and ball.distance(left_paddle) < 45)
     ):
-        current_heading = ball.heading()
-        new_heading = 180 - ball.heading()
-        ball.setheading(new_heading)
+        ball.paddle_bounce()
 
 
 screen.exitonclick()
