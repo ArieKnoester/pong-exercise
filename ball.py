@@ -29,5 +29,5 @@ class Ball(Turtle):
 
     def paddle_bounce(self):
         current_heading = self.heading()
-        new_heading = 180 - self.heading()
+        new_heading = 180 - current_heading
         self.setheading(new_heading)
