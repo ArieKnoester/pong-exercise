@@ -17,13 +17,12 @@ class Ball(Turtle):
 
     def move(self):
         self.forward(MOVE_SPEED)
-        # This conditional controls the ball's behavior for bouncing off the top and bottom of the screen.
-        # I'm not completely happy with this solution. The ball may clip through the edge of the screen or
-        # bounce early depending on how steep the angle of approach is. Maybe a better approach would be
-        # to have 2 hidden turtles as the top and bottom boundaries and use the turtle.distance() function
-        # to detect collision.
+
         if self.ycor() > 280 or self.ycor() < -280:
             self.wall_bounce()
+        self.check_ball_in_play()
+
+    def check_ball_in_play(self):
         if self.xcor() > 420:
             self.in_play = False
             self.side_out = "right"
@@ -46,8 +45,8 @@ class Ball(Turtle):
         heading = 0
 
         if service_side == "left":
-            heading = random.randrange(110, 261)
+            heading = random.randrange(120, 261)
         elif service_side == "right":
-            heading = random.randrange(70, 281)
+            heading = random.randrange(-70, 70)
 
         self.setheading(heading)
