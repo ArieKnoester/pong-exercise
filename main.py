@@ -35,15 +35,11 @@ while game_running:
     ball.move()
 
     # Detect if ball collides with either paddle.
-    # Still a little buggy, but improved from commit bc37b05.
-    # There appears to be some edge cases which cause the ball
-    # to behave unexpectedly.
     if (
-        (ball.xcor() > 330 and ball.distance(right_paddle) < 45)
+        (ball.xcor() > 330 and ball.distance(right_paddle) < 50)
         or
-        (ball.xcor() < -330 and ball.distance(left_paddle) < 45)
+        (ball.xcor() < -330 and ball.distance(left_paddle) < 50)
     ):
         ball.paddle_bounce()
-
 
 screen.exitonclick()
