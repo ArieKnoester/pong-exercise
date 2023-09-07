@@ -29,7 +29,7 @@ screen.onkey(left_paddle.down, "s")
 game_running = True
 while game_running:
     screen.update()
-    time.sleep(0.2)
+    time.sleep(0.1)
     ball.move()
 
     # Detect if ball collides with either paddle.
