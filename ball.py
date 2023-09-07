@@ -10,7 +10,6 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.penup()
-        # self.setheading(45)
         self.in_play = True
         self.side_out = ""
         self.set_initial_trajectory()
