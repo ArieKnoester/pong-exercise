@@ -11,6 +11,8 @@ class Ball(Turtle):
         self.color("white")
         self.penup()
         self.setheading(45)
+        self.in_play = True
+        self.side_out = ""
 
     def move(self):
         self.forward(MOVE_SPEED)
@@ -21,6 +23,12 @@ class Ball(Turtle):
         # to detect collision.
         if self.ycor() > 280 or self.ycor() < -280:
             self.wall_bounce()
+        if self.xcor() > 420:
+            self.in_play = False
+            self.side_out = "right"
+        if self.xcor() < -420:
+            self.in_play = False
+            self.side_out = "left"
 
     def wall_bounce(self):
         current_heading = self.heading()
