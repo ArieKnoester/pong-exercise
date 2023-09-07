@@ -18,9 +18,8 @@ def initialize_screen():
 screen = initialize_screen()
 left_paddle = Paddle((-350, 0))
 right_paddle = Paddle((350, 0))
-left_score = Scoreboard((-160, 240))
-right_score = Scoreboard((160, 240))
-
+left_scoreboard = Scoreboard((-160, 240))
+right_scoreboard = Scoreboard((160, 240))
 ball = Ball()
 
 screen.onkey(right_paddle.up, "Up")
@@ -42,13 +41,12 @@ while game_running:
     ):
         ball.paddle_bounce()
 
-    # Scoring
+    # Scoring. I don't like how I'm repeating code in these conditionals.
     if ball.xcor() > 420:
-        left_score.add_point_to_score()
-        ball.reset() # for testing
+        left_scoreboard.add_point_to_score()
+        ball = Ball()
     if ball.xcor() < -420:
-        right_score.add_point_to_score()
-        ball.reset() # for testing
-
+        right_scoreboard.add_point_to_score()
+        ball = Ball()
 
 screen.exitonclick()
