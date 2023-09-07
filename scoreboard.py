@@ -10,9 +10,7 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.penup()
         self.color("white")
-        # self.goto(position)
         self.goto(x=0, y=240)
-        # self.score = 0
         self.left_score = 0
         self.right_score = 0
         self.display_score()
@@ -29,4 +27,5 @@ class Scoreboard(Turtle):
         self.write(
             f"{self.left_score}                       {self.right_score}",
             align=ALIGNMENT,
-            font=FONT)
+            font=FONT
+        )
