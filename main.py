@@ -42,4 +42,13 @@ while game_running:
     ):
         ball.paddle_bounce()
 
+    # Scoring
+    if ball.xcor() > 420:
+        left_score.add_point_to_score()
+        ball.reset() # for testing
+    if ball.xcor() < -420:
+        right_score.add_point_to_score()
+        ball.reset() # for testing
+
+
 screen.exitonclick()
