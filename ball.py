@@ -1,5 +1,5 @@
 from turtle import Turtle
-# import random
+import random
 MOVE_SPEED = 25
 
 
@@ -10,9 +10,10 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.penup()
-        self.setheading(45)
+        # self.setheading(45)
         self.in_play = True
         self.side_out = ""
+        self.set_initial_trajectory()
 
     def move(self):
         self.forward(MOVE_SPEED)
@@ -39,3 +40,14 @@ class Ball(Turtle):
         current_heading = self.heading()
         new_heading = 180 - current_heading
         self.setheading(new_heading)
+
+    def set_initial_trajectory(self):
+        service_side = random.choice(("left", "right"))
+        heading = 0
+
+        if service_side == "left":
+            heading = random.randrange(110, 261)
+        elif service_side == "right":
+            heading = random.randrange(70, 281)
+
+        self.setheading(heading)
