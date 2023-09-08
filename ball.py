@@ -1,6 +1,6 @@
 from turtle import Turtle
 import random
-MOVE_SPEED = 20
+# MOVE_SPEED = 20
 
 
 class Ball(Turtle):
@@ -12,10 +12,11 @@ class Ball(Turtle):
         self.penup()
         self.in_play = True
         self.side_out = ""
+        self.move_speed = 20
         self.set_initial_trajectory()
 
     def move(self):
-        self.forward(MOVE_SPEED)
+        self.forward(self.move_speed)
 
         if self.ycor() > 280 or self.ycor() < -280:
             self.wall_bounce()
@@ -38,6 +39,8 @@ class Ball(Turtle):
         current_heading = self.heading()
         new_heading = 180 - current_heading
         self.setheading(new_heading)
+        self.move_speed += 1
+        print(self.move_speed)
 
     def set_initial_trajectory(self):
         service_side = random.choice(("left", "right"))
