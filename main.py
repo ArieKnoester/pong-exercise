@@ -2,6 +2,7 @@ from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard
+from net_segment import NetSegment
 import time
 
 
@@ -14,17 +15,25 @@ def initialize_screen():
     return new_screen
 
 
-screen = initialize_screen()
-left_paddle = Paddle((-350, 0))
-right_paddle = Paddle((350, 0))
-scoreboard = Scoreboard()
-ball = Ball()
+def create_net():
+    net_segment_ycor = 265
+    for _ in range(9):
+        net_segment = NetSegment()
+        net_segment.goto(x=0, y=net_segment_ycor)
+        net_segment_ycor -= 75
 
+
+screen = initialize_screen()
 end_score = screen.numinput(
     title="Welcome to Python Pong!",
     prompt="Play to what score?",
     default=5
 )
+left_paddle = Paddle((-350, 0))
+right_paddle = Paddle((350, 0))
+scoreboard = Scoreboard()
+create_net()
+ball = Ball()
 
 # screen.listen() must be set after screen.numinput()
 screen.listen()
