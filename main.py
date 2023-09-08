@@ -26,7 +26,7 @@ end_score = screen.numinput(
     default=5
 )
 
-# must set screen.listen() after screen.numinput()
+# screen.listen() must be set after screen.numinput()
 screen.listen()
 screen.onkey(right_paddle.up, "Up")
 screen.onkey(right_paddle.down, "Down")
