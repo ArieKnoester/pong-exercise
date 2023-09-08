@@ -34,11 +34,15 @@ class Ball(Turtle):
         current_heading = self.heading()
         new_heading = 360 - current_heading
         self.setheading(new_heading)
+        self.increase_ball_movement()
 
     def paddle_bounce(self):
         current_heading = self.heading()
         new_heading = 180 - current_heading
         self.setheading(new_heading)
+        self.increase_ball_movement()
+
+    def increase_ball_movement(self):
         self.move_speed += 1
 
     def set_initial_trajectory(self):
