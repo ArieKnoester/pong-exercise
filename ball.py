@@ -40,7 +40,6 @@ class Ball(Turtle):
         new_heading = 180 - current_heading
         self.setheading(new_heading)
         self.move_speed += 1
-        print(self.move_speed)
 
     def set_initial_trajectory(self):
         service_side = random.choice(("left", "right"))
