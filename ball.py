@@ -50,8 +50,12 @@ class Ball(Turtle):
         heading = 0
 
         if service_side == "left":
-            heading = random.randrange(120, 261)
+            top_angle = random.randrange(120, 150)
+            bottom_angle = random.randrange(210, 240)
+            heading = random.choice((top_angle, bottom_angle))
         elif service_side == "right":
-            heading = random.randrange(-70, 70)
+            top_angle = random.randrange(30, 60)
+            bottom_angle = random.randrange(-60, -30)
+            heading = random.choice((top_angle, bottom_angle))
 
         self.setheading(heading)
